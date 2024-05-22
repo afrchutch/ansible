@@ -5,12 +5,14 @@
   tasks:
 
   - name: install updates (CentOS)
+    tags: always
     dnf:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
   - name: install updates (Ubuntu)
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
@@ -21,10 +23,26 @@
   tasks:
 
   - name: install apache and php packages for Ubuntu
+    tags: apache,apache2,ubuntu
     apt:
       name: 
         - apache2
         - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: wazuh_server
+  become: true
+  tasks:
+
+  - name: install docker and docker-compose
+    tags: docker,docker-compose
+    apt:
+      name:
+        - docker
+        - docker.io
+        - docker-compose
       state: latest
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
