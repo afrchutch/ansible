@@ -1,2 +1,6 @@
+[ubuntu_servers]
 cam@192.168.0.32
 cam@192.168.0.38
+
+[centos_servers]
+cam@192.168.0.39
