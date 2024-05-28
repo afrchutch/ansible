@@ -1,0 +1,64 @@
+---
+
+- hosts: ansible_server
+  become: true
+  tasks:
+  
+  - name: intall updates on ansible server
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repo cache and install available packages (CentOS)
+    tags: always
+    dnf:
+      update_cache: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: update repo cache and install availale packages (Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: install apache and php packages for Ubuntu
+    tags: apache,apache2,ubuntu
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: copy default html file for site
+    tags: apache,apache2
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+- hosts: wazuh_server
+  become: true
+  tasks:
+
+  - name: install docker and docker-compose
+    tags: docker,docker-compose
+    apt:
+      name:
+        - docker
+        - docker.io
+        - docker-compose
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"

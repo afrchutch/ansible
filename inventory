@@ -6,5 +6,5 @@ cam@192.168.0.39
 [wazuh_server]
 cam@192.168.0.40
 
-[ansible_server]
+[ansible]
 192.168.0.30
