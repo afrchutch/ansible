@@ -9,5 +9,18 @@ cam@192.168.0.39
 [wazuh_server]
 cam@192.168.0.40
 
-#[centOS]
-#cam@192.168.0.39
+[all_but_ansible]
+cam@192.168.0.32
+cam@192.168.0.38
+cam@192.168.0.39
+cam@192.168.0.40
+
+[ubuntu]
+cam@192.168.0.32
+cam@192.168.0.38
+
+[centos]
+cam@192.168.0.39
+
+#[ubuntu_laptop]
+#cam@192.168.0.173
