@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: remove apache from centos hosts
+      tags: httpd,php
+      dnf:
+        name:
+          - httpd
+          - php
+        state: absent
+      when: ansible_distribution == "CentOS"
