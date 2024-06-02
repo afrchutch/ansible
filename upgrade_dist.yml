@@ -14,7 +14,7 @@
 
     - name: Check if a reboot is required
       register: file
-      stat: path=/var/run/reboot-required get_md5=no
+      stat: path=/var/run/reboot-required get_checksum=no
 
     - name: Reboot the server
       command: /sbin/reboot
@@ -45,4 +45,3 @@
     - name: reboot
       reboot:
       when: reboot_required.rc !=0
-
