@@ -1,9 +1,9 @@
 ---
 - name: Reboot machine
-  hosts: all
+  hosts: web_servers,wazuh_server,jenkins
   become: true
 
   tasks:
     - name: Reboot machine
       ansible.builtin.reboot:
-        reboot_timeout: 3600
+        reboot_timeout: 180
