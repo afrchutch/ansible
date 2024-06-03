@@ -10,3 +10,4 @@
       ansible.builtin.apt:
         name: qemu-guest-agent
         state: present
+    when: ansible_distribution == "Ubuntu"
