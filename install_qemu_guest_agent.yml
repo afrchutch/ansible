@@ -10,11 +10,11 @@
       ansible.builtin.apt:
         name: qemu-guest-agent
         state: present
-    when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution == "Ubuntu"
 
-    tasks:
+  tasks:
     - name: Install qemu-guest-agent
       ansible.builtin.dnf:
         name: qemu-guest-agent
         state: present
-    when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "CentOS"
