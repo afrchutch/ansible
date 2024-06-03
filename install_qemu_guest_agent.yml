@@ -20,4 +20,8 @@
     - name: Install qemu-guest-agent
       ansible.builtin.dnf:
         name: qemu-guest-agent
+<<<<<<< HEAD
         state: present
+=======
+        state: present
+>>>>>>> 2ae9a10ed493313b2779c474803703fe53dbec92
