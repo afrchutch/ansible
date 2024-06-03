@@ -1,3 +1,5 @@
+---
+
 - name: Install qemu-guest-agent package
   hosts: all
   become: true
