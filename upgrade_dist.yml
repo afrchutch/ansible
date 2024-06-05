@@ -32,10 +32,8 @@
   tasks:
 
     - name: Upgrade all packages
-      ansible.builtin.dnf:
-        name: "*"
-        state: latest
-
+      shell: dnf update -y && dnf upgrade -y
+      
     - name: Check if reboot required
       shell: needs-restarting -r
       failed_when: false
