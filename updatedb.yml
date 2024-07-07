@@ -1,0 +1,11 @@
+---
+
+
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Perform a sudo updatedb on all hosts
+      ansible.builtin.shell:
+        cmd: sudo updatedb
