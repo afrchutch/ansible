@@ -12,14 +12,6 @@
         update_cache: yes
       when: ansible_distribution == "Ubuntu"
 
-    - name: Check if a reboot is required
-      register: file
-      stat: path=/var/run/reboot-required get_checksum=no
-
-    - name: Reboot the server
-      command: /sbin/reboot
-      when: file.stat.exists == true
-
     - name: Remove dependencies that are no longer required.
       ansible.builtin.apt:
         autoremove: yes
@@ -33,7 +25,7 @@
 
     - name: Upgrade all packages
       shell: dnf update -y && dnf upgrade -y
-      
+
     - name: Check if reboot required
       shell: needs-restarting -r
       failed_when: false
