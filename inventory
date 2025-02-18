@@ -56,8 +56,8 @@ cam@192.168.0.55
 192.168.0.40            proxmox_vmid=105
 
 [all_but_ansible]
-192.168.0.32            proxmox_vmid=102 
-192.168.0.38            proxmox_vmid=103 
+192.168.0.32            proxmox_vmid=102
+192.168.0.38            proxmox_vmid=103
 192.168.0.39            proxmox_vmid=104
 192.168.0.40            proxmox_vmid=105
 192.168.0.42            proxmox_vmid=106
