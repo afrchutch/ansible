@@ -1,5 +1,3 @@
----
-
 [ansible]
 192.168.0.30
 
@@ -30,51 +28,8 @@ cam@192.168.0.46
 cam@192.168.0.55
 192.168.0.30
 
-
-[ubuntu]
-192.168.0.30            proxmox_vmid=101
-192.168.0.32            proxmox_vmid=102
-192.168.0.38            proxmox_vmid=103
-192.168.0.40            proxmox_vmid=105
-192.168.0.42            proxmox_vmid=106
-192.168.0.46            proxmox_vmid=107
-192.168.0.55            proxmox_vmid=111
-192.168.0.105           proxmox_host=112
-
-
+[jenkins]
+cam@192.168.0.42
 
 [centos]
-192.168.0.39            proxmox_vmid=104
-
-
-[web_servers]
-192.168.0.32            proxmox_vmid=102
-192.168.0.38            proxmox_vmid=103
-192.168.0.39            proxmox_vmid=104
-
-[wazuh_server]
-192.168.0.40            proxmox_vmid=105
-
-[all_but_ansible]
-192.168.0.32            proxmox_vmid=102
-192.168.0.38            proxmox_vmid=103
-192.168.0.39            proxmox_vmid=104
-192.168.0.40            proxmox_vmid=105
-192.168.0.42            proxmox_vmid=106
-192.168.0.46            proxmox_vmid=107
-192.168.0.55            proxmox_vmid=111
-192.168.0.105           proxmox_host=112
-
-[jenkins]
-192.168.0.42            proxmox_vmid=106
-
-[ansible]
-192.168.0.30            proxmox_vmid=101
-
-[all:vars]
-proxmox_host=192.168.0.28  # e.g., pve.example.com or an IP address
-proxmox_user=root   # Use your dedicated Proxmox API user
-proxmox_password=CaliCat2022<3!  #  <-- DANGER! Cleartext password here
-proxmox_validate_certs=false    # Set to true if you have valid SSL certs
-ansible_connection=ssh # This ensures that Ansible uses SSH
-ansible_become_pass=Gmaster3! # If all hosts use the same password
+cam@192.168.0.39
