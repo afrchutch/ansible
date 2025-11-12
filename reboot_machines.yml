@@ -1,6 +1,6 @@
 ---
 - name: Reboot machine
-  hosts: web_servers,wazuh_server,jenkins
+  hosts: web_servers
   become: true
 
   tasks:
